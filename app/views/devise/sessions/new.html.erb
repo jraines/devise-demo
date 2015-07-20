@@ -1,3 +1,6 @@
+<h2>Log in with GitHub</h2>
+<%= link_to "Sign in with GitHub", user_omniauth_authorize_path(:github) %>
+
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
