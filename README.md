@@ -5,7 +5,7 @@
 3. Follow the instructions that that command outputs for you.
 4. Generate a devise enabled model: `rails g devise User`
 5. Edit that migration to add any additional fields you want on your user
-6. Generate devise views so they're customizable in your own app structure `rails g devise views:install`
+6. Generate devise views so they're customizable in your own app structure `rails g devise:views`
 
 #To add Omniauth provider login
 
