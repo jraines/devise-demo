@@ -1,0 +1,13 @@
+<% Github.new.repos.list(user: @user.username).each_slice(4) do |repo_group| %>
+  <div class='row'>
+    <% repo_group.each do |repo| %>
+      <div class='col-xs-3 repo-wrapper'>
+        <div class='repo'>
+          <h3><%= link_to repo['name'], repo['html_url'] %></h3>
+          <%= repo['description'] %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+

@@ -11,7 +11,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def user_params
     p = ActionController::Parameters.new(request.env["omniauth.auth"])
-    p.permit(:provider, :uid, {info: [:email]},
+
+    p.permit(:provider, :uid, {info: [:email, :nickname]},
              {credentials: [:token]})
   end
 end
