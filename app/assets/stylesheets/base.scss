@@ -1,0 +1,30 @@
+.navbar {
+  color: #EEEEEE;
+  margin-bottom: 0;
+}
+.nav-pills li a{
+  font-size: 1.1em;
+  margin-top: 4px;
+  background: #444444;
+  color: white;
+  &:hover {
+    color: blue;
+  }
+}
+
+.flash {
+  margin-top:0;
+  padding: 4px;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.notice {
+  background: green;
+  color: white;
+}
+
+.alert {
+  background: yellow;
+  color: black;
+}
