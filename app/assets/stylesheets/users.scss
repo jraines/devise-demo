@@ -1,21 +1,24 @@
+
+$outer-box-color: lightgreen;
+$inner-box-color: darken($outer-box-color, 20%);
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .repo-wrapper {
   height: 300px;
-  background: lightblue;
+  background: $outer-box-color;
   border: thin black solid;
 }
 
 .repo {
+  @include vertical-align;
   height: 90%;
   width: 90%;
-
-  /*these 3 lines center vertically*/
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-
-  /*this centers horizontally*/
   margin: 0 auto;
-
   padding: 10px;
-  background: lightgreen;
+  background: $inner-box-color;
 }
