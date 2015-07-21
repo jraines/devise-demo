@@ -1,3 +1,38 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@media all and (min-width: 601px) {
+  .image {
+    height: 400px;
+    width: 400px;
+    margin: 10px;
+    display: inline-block;
+    border: 3px red solid;
+    background: url(http://placehold.it/400x400);
+  }
+}
+
+.greeting{
+  font-size: 50px;
+  transition: color 0.5s;
+}
+
+@media all and (max-width: 600px) {
+  .greeting{
+    color: green;
+  }
+
+  .greeting::after{
+    content: " Download the mobile app"
+  }
+
+  .image {
+    height: 300px;
+    width: 300px;
+    margin: 5px;
+    display: inline-block;
+    background: url(http://placehold.it/300x300);
+  }
+}
