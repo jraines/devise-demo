@@ -12,4 +12,7 @@ class PagesController < ApplicationController
   def info
     redirect_to :about
   end
+
+  def team
+  end
 end
