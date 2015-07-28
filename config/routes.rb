@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'pages/about', as: :about
   get 'pages/info'
   get 'pages/team'
+  get 'pages/investor_info'
 
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 

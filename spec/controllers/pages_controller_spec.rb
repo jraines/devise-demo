@@ -1,6 +1,8 @@
 require 'rails_helper'
 
+
 RSpec.describe PagesController, type: :controller do
+  include Devise::TestHelpers
 
   describe "GET #show" do
     it "returns http success" do
@@ -13,6 +15,11 @@ RSpec.describe PagesController, type: :controller do
     it "returns http success" do
       get :index
       expect(response).to be_success
+    end
+
+    it "returns all the right pages" do
+      get :index
+      expect(assigns(:pages)).to(eq(['about', 'team']))
     end
   end
 
@@ -27,6 +34,28 @@ RSpec.describe PagesController, type: :controller do
     it "returns http success" do
       get :team
       expect(response).to be_success
+    end
+  end
+
+  describe "GET #investor_info" do
+    context "with a logged out visitor" do
+      it "redirects them to the login page" do
+        get :investor_info
+        expect(response).to be_redirect
+      end
+    end
+
+    context "logged in user" do
+
+      before do
+        @user = User.create password: '12345678', email: 'jraines@gmail.com'
+      end
+
+      it "should be a success" do
+        sign_in @user
+        get :investor_info
+        expect(response).to have_http_status(:success) #test for 200 status
+      end
     end
   end
 

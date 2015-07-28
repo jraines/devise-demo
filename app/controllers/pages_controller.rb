@@ -1,6 +1,12 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!, only: [:investor_info]
 
   def index
+    @pages = ['about', 'team']
+  end
+
+  def investor_info
+    render text: 'go away'
   end
 
   def show
