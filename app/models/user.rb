@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable,
          :validatable, :omniauthable, omniauth_providers: [:github]
 
+
+  has_many :user_quizzes
+  has_many :quizzes, through: :user_quizzes
+
   def self.find_for_github_oauth(auth)
     #when we slice auth we get:
     #{:provider => 'github', :uid => 'some_uid'}
