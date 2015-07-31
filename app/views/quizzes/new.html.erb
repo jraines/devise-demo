@@ -1,4 +1,13 @@
 <%= form_for @quiz do |f| %>
-  <%= f.text_field :name %>
+
+  <label>Quiz Name</label><br>
+  <%= f.text_field :name %><br>
+
+  <label>Question</label><br>
+  <%= f.fields_for @quiz.questions.build do |f_question| %>
+    <%= f_question.text_field :body %><br>
+    <%= f_question.text_field :answer %>
+  <% end %>
+
   <%= f.submit "Create" %>
 <% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :questions
   resources :quizzes
   get 'pages/show'
   get 'pages/index'

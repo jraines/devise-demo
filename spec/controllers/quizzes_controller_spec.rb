@@ -17,7 +17,13 @@ RSpec.describe QuizzesController, type: :controller do
       sign_in(user)
     end
 
+    it "should create a basic quiz" do
+      post :create, { quiz: { name: 'New quiz'} }
+      expect(Quiz.count).to be(1)
+    end
+
     it "should create a quiz based on what the user entered" do
+      pending
       post :create, { quiz: { name: 'New quiz'} }
       expect(Quiz.count).to be(1)
     end

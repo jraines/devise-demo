@@ -8,5 +8,9 @@ FactoryGirl.define do
       quiz.users << build(:user)
     end
 
+    after(:build) do |quiz, evaluator|
+      quiz.questions << build(:question)
+    end
+
   end
 end
