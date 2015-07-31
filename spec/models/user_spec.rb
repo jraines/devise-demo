@@ -2,13 +2,17 @@ require 'rails_helper'
 
 describe User do
 
-  let(:user) { create(:user) }
-  let(:quiz) { create(:quiz) }
+  let(:user)    { create(:user) }
+  let(:quizzes) { create_list(:quiz, 2) }
 
   it 'should have many quizzes' do
-    user.quizzes << quiz
+    quizzes.each do |quiz|
+      user.quizzes << quiz
+    end
 
-    expect(user.quizzes).to include(quiz)
+    quizzes.each do |quiz|
+      expect(user.quizzes).to include(quiz)
+    end
   end
 
 end

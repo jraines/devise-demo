@@ -3,5 +3,10 @@
 FactoryGirl.define do
   factory :quiz do
     name "MyString"
+
+    after(:build) do |quiz, evaluator|
+      quiz.users << build(:user)
+    end
+
   end
 end
