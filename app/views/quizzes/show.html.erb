@@ -1,1 +1,8 @@
 <%= @quiz.name %>
+<% @quiz.questions.each do |question| %>
+  <div>
+    <p><%= question.body %></p>
+    <p><%= question.answer %></p>
+  </div>
+<% end %>
+

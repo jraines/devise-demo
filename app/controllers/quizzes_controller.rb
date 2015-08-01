@@ -29,6 +29,6 @@ class QuizzesController < ApplicationController
     #had to use pry to see that the form data for the nested
     #question(s) comes in through "questions_attributes"
     params.require(:quiz).permit(:name,
-                                 :questions_attributes => [:body])
+                                 :questions_attributes => [:body, :answer])
   end
 end
