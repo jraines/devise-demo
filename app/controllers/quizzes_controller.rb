@@ -6,6 +6,10 @@ class QuizzesController < ApplicationController
 
   def new
     @quiz = Quiz.new
+    #this line is needed to make one question form show up
+    #in the view (see the fields_for section of the form for
+    #the nested part about filling out this question
+    @quiz.questions << Question.new
   end
 
   def show
@@ -13,10 +17,8 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    binding.pry
     @quiz = Quiz.new quiz_params
     @quiz.users << current_user
-    #add questions to the quiz
     @quiz.save
     redirect_to quiz_path(@quiz)
   end
@@ -24,6 +26,9 @@ class QuizzesController < ApplicationController
   private
 
   def quiz_params
-    params.require(:quiz).permit(:name, :questions)
+    #had to use pry to see that the form data for the nested
+    #question(s) comes in through "questions_attributes"
+    params.require(:quiz).permit(:name,
+                                 :questions_attributes => [:body])
   end
 end

@@ -4,7 +4,7 @@
   <%= f.text_field :name %><br>
 
   <label>Question</label><br>
-  <%= f.fields_for @quiz.questions.build do |f_question| %>
+  <%= f.fields_for :questions do |f_question| %>
     <%= f_question.text_field :body %><br>
     <%= f_question.text_field :answer %>
   <% end %>
