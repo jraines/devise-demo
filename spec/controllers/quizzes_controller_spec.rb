@@ -18,14 +18,18 @@ RSpec.describe QuizzesController, type: :controller do
     end
 
     it "should create a basic quiz" do
-      post :create, { quiz: { name: 'New quiz'} }
+      post :create, { quiz: {
+                        name: 'New quiz',
+                        questions_attributes: {
+                          '0' => {
+                            body: 'To be or nah?',
+                            answer: 'Sure'
+                          }
+                        }
+                      }
+                    }
       expect(Quiz.count).to be(1)
     end
 
-    it "should create a quiz based on what the user entered" do
-      pending
-      post :create, { quiz: { name: 'New quiz'} }
-      expect(Quiz.count).to be(1)
-    end
   end
 end
