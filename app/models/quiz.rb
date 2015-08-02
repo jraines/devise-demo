@@ -5,9 +5,8 @@ class Quiz < ActiveRecord::Base
 
   accepts_nested_attributes_for :questions
 
-  validates_presence_of :questions
+  validates_presence_of :questions, :users
 
-  validate :has_at_least_one_user
 
   def has_at_least_one_user
     errors.add(:users, 'must have one user') if users.blank?

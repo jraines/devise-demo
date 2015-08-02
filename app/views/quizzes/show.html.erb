@@ -2,7 +2,11 @@
 <% @quiz.questions.each do |question| %>
   <div>
     <p><%= question.body %></p>
-    <p><%= question.answer %></p>
+    <% question.answers.each do |answer| %>
+      <p> <%= answer.body %> </p>
+      <p> <%= answer.correct %> </p>
+      ----- <br>
+    <% end %>
   </div>
 <% end %>
 

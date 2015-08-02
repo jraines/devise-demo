@@ -9,7 +9,10 @@ class QuizzesController < ApplicationController
     #this line is needed to make one question form show up
     #in the view (see the fields_for section of the form for
     #the nested part about filling out this question
-    @quiz.questions << Question.new
+    q = Question.new
+    a = Answer.new
+    q.answers << a
+    @quiz.questions << q
   end
 
   def show
@@ -29,6 +32,8 @@ class QuizzesController < ApplicationController
     #had to use pry to see that the form data for the nested
     #question(s) comes in through "questions_attributes"
     params.require(:quiz).permit(:name,
-                                 :questions_attributes => [:body, :answer])
+       :questions_attributes => [:body,
+                                 :answers_attributes =>[:body,
+                                                        :correct]])
   end
 end

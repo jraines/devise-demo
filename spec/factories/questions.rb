@@ -3,6 +3,10 @@
 FactoryGirl.define do
   factory :question do
     body "MyText"
-    answer "MyText"
+
+    after(:build) do |q, evaluator|
+      q.answers << build(:answer, correct: true)
+      q.answers << build(:answer)
+    end
   end
 end

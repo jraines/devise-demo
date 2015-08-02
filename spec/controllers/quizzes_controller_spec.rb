@@ -23,7 +23,10 @@ RSpec.describe QuizzesController, type: :controller do
                         questions_attributes: {
                           '0' => {
                             body: 'To be or nah?',
-                            answer: 'Sure'
+                            answers_attributes: {
+                              '0' => { body: 'Sure',
+                                       correct: true }
+                            }
                           }
                         }
                       }
