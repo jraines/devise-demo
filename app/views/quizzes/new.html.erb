@@ -8,17 +8,23 @@
     <%= f_question.label :body %>
     <%= f_question.text_field :body %><br>
 
-    <label>Answers</label><br>
-    <%= f_question.fields_for :answers do |f_answer| %>
-      <%= f_answer.label :body %>
-      <%= f_answer.text_field :body %><br>
-      <%= f_answer.label :correct %>
-      <%= f_answer.check_box :correct %><br>
-    <% end %>
+    <fieldset class='answers'>
+      <%= f_question.fields_for :answers do |f_answer| %>
+        <div class='answer-form'>
+          <%= f_answer.label :body, 'Answer' %>
+          <%= f_answer.text_field :body %><br>
+          <%= f_answer.label :correct %>
+          <%= f_answer.check_box :correct %><br>
+        </div>
+        <div class='add-answer'>
+          Add answer
+        </div>
+      <% end %>
+    </fieldset>
 
   <% end %>
 
 
   <%= f.submit "Create" %>
 <% end %>
-<button id='add-question'>Add Question</button>
+<div id='add-question'>Add Question</div>

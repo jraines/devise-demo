@@ -1,11 +1,13 @@
-<%= @quiz.name %>
+<h1><%= @quiz.name %></h1>
 <% @quiz.questions.each do |question| %>
   <div>
-    <p><%= question.body %></p>
+    <h2><%= question.body %></h2>
     <% question.answers.each do |answer| %>
-      <p> <%= answer.body %> </p>
-      <p> <%= answer.correct %> </p>
-      ----- <br>
+      <% css_class = answer.correct? ? 'correct' : '' %>
+      <div class='answer'>
+        <p> <%= answer.body %> </p>
+        <p class="<%= css_class %>"> <%= answer.correct %> </p>
+      </div>
     <% end %>
   </div>
 <% end %>
