@@ -1,3 +1,4 @@
+require_relative '../../lib/new_quiz_maker'
 class QuizzesController < ApplicationController
 
   def index
@@ -5,14 +6,7 @@ class QuizzesController < ApplicationController
   end
 
   def new
-    @quiz = Quiz.new
-    #this line is needed to make one question form show up
-    #in the view (see the fields_for section of the form for
-    #the nested part about filling out this question
-    q = Question.new
-    a = Answer.new
-    q.answers << a
-    @quiz.questions << q
+    @quiz = NewQuizMaker.new.blank_quiz
   end
 
   def show
