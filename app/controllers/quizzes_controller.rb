@@ -1,4 +1,3 @@
-require_relative '../../lib/new_quiz_maker'
 class QuizzesController < ApplicationController
 
   def index
@@ -7,6 +6,16 @@ class QuizzesController < ApplicationController
 
   def new
     @quiz = NewQuizMaker.new.blank_quiz
+  end
+
+  def edit
+    @quiz = Quiz.find(params[:id])
+  end
+
+  def update
+    binding.pry
+    @quiz = Quiz.find(params[:id])
+    QuizUpdater.new.update(@quiz, quiz_params)
   end
 
   def show
@@ -26,8 +35,10 @@ class QuizzesController < ApplicationController
     #had to use pry to see that the form data for the nested
     #question(s) comes in through "questions_attributes"
     params.require(:quiz).permit(:name,
-       :questions_attributes => [:body,
-                                 :answers_attributes =>[:body,
+       :questions_attributes => [:id,
+                                 :body,
+                                 :answers_attributes =>[:id,
+                                                        :body,
                                                         :correct]])
   end
 end
