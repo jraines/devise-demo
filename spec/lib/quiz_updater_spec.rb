@@ -5,9 +5,7 @@ describe QuizUpdater do
   let!(:quiz) { create(:quiz) }
 
   let!(:quiz_params) {
-    { id: quiz.id,
-      quiz: {
-      name: 'New quiz',
+    { name: 'New quiz',
       questions_attributes: {
         '0' => {
           id: quiz.questions.first.id,
@@ -22,7 +20,7 @@ describe QuizUpdater do
           answers_attributes: {
             '0' => { body: 'Sure',
                      correct: true }}}
-      }}}}
+      }}}
 
   before do
     @updater = QuizUpdater.new(quiz)
@@ -40,7 +38,7 @@ describe QuizUpdater do
     end
 
     it "remove questions that were not submitted" do
-      quiz_params[:quiz][:questions_attributes].delete('0')
+      quiz_params[:questions_attributes].delete('0')
       changed_quiz = @updater.update(quiz_params)
       expect(changed_quiz.questions.map(&:body)).to_not include('MyText')
     end

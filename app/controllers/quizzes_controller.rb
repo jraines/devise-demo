@@ -13,9 +13,8 @@ class QuizzesController < ApplicationController
   end
 
   def update
-    binding.pry
     @quiz = Quiz.find(params[:id])
-    QuizUpdater.new.update(@quiz, quiz_params)
+    QuizUpdater.new(@quiz).update(quiz_params)
   end
 
   def show
