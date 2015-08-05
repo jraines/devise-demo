@@ -34,9 +34,15 @@ describe QuizUpdater do
       expect(changed_quiz.questions.count).to eq(2)
     end
 
-    it "remove questions that are not present in the params" do
+    it "create questions that it didn't already have, which are in params" do
       changed_quiz = @updater.update(quiz_params)
       expect(changed_quiz.questions.map(&:body)).to include('To be or nah?')
+    end
+
+    it "remove questions that were not submitted" do
+      quiz_params[:quiz][:questions_attributes].delete('0')
+      changed_quiz = @updater.update(quiz_params)
+      expect(changed_quiz.questions.map(&:body)).to_not include('MyText')
     end
   end
 

@@ -34,7 +34,9 @@ class QuizUpdater
     end.compact
 
     ids_of_questions_to_delete = quiz_question_ids - submitted_question_ids
+
     quiz.questions.where(id: ids_of_questions_to_delete).destroy_all
+    quiz.reload
   end
 
 end
