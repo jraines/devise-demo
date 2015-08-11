@@ -1,0 +1,5 @@
+<% @shots.each do |shot| %>
+  <h2><%= shot.title %></h2>
+  <p><%= shot.player_twitter_screen_name %></p>
+  <img src="<%= shot.image_url %>">
+<% end %>
