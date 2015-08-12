@@ -10,6 +10,7 @@ group :development, :test do
 end
 
 gem "dribble_demo", github: "jraines/dribble-demo-gem"
+gem "jr_frontend", github: "jraines/jr_frontend"
 
 group :production do
   gem 'pg'

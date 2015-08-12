@@ -5,6 +5,13 @@ GIT
     dribble_demo (0.0.1)
       httparty (~> 0.13.5)
 
+GIT
+  remote: git://github.com/jraines/jr_frontend.git
+  revision: 6ae9d279df062b25742d56bbf92152d6b466cc42
+  specs:
+    jr_frontend (0.0.1)
+      railties (> 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -248,6 +255,7 @@ DEPENDENCIES
   github_api
   jbuilder (~> 2.0)
   jquery-rails
+  jr_frontend!
   newrelic_rpm
   omniauth-github
   pg
