@@ -12,6 +12,13 @@ GIT
     jr_frontend (0.0.1)
       railties (> 3.1)
 
+GIT
+  remote: git://github.com/jraines/stylitics_client.git
+  revision: efa0c5c978d557e221b4490c66d05ee5c3e8ec61
+  specs:
+    stylitics (0.0.1)
+      httparty (~> 0.13.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -267,6 +274,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   spring
   sqlite3
+  stylitics!
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
